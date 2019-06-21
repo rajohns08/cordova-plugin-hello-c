@@ -49,11 +49,10 @@ buildit()
 
     export CC="$(xcrun -sdk iphoneos -find clang)"
     #CPP="$CC -E"
-    export CFLAGS="-arch ${target} -isysroot $PLATFORMPATH/$platform.platform/Developer/SDKs/$platform$SDKVERSION.sdk -miphoneos-version-min=$SDKVERSION"
+    export CFLAGS="-arch ${target} -isysroot $PLATFORMPATH/$platform.platform/Developer/SDKs/$platform$SDKVERSION.sdk -miphoneos-version-min=$SDKVERSION -fembed-bitcode"
     export AR=$(xcrun -sdk iphoneos -find ar)
     export RANLIB=$(xcrun -sdk iphoneos -find ranlib)
-    #CPPFLAGS="-arch ${target}  -isysroot $PLATFORMPATH/$platform.platform/Developer/SDKs/$platform$SDKVERSION.sdk -miphoneos-version-min=$SDKVERSION"
-    export LDFLAGS="-arch ${target} -isysroot $PLATFORMPATH/$platform.platform/Developer/SDKs/$platform$SDKVERSION.sdk"    
+    export LDFLAGS="-mthumb -arch ${target} -isysroot $PLATFORMPATH/$platform.platform/Developer/SDKs/$platform$SDKVERSION.sdk -fembed-bitcode"    
 
     export SRC_PATH="$TEMP_DIR"
     export TARGET_PATH="temp/$target"
@@ -75,10 +74,10 @@ cp `find $SRC_ROOT -type f \( -name "*.c" -or -name "*.h" \)` $TEMP_DIR
 
 findLatestSDKVersion iPhoneOS
 
-buildit armv7 iPhoneOS
-buildit armv7s iPhoneOS
+# buildit armv7 iPhoneOS
+# buildit armv7s iPhoneOS
 buildit arm64 iPhoneOS
-buildit i386 iPhoneSimulator
+# buildit i386 iPhoneSimulator
 buildit x86_64 iPhoneSimulator
 
 LIPO=$(xcrun -sdk iphoneos -find lipo)
