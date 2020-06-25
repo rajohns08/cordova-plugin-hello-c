@@ -1,2 +1,2 @@
 .idea
-/src/android/obj
+src/android/obj/local/*/objs/helloc/

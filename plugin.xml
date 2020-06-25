@@ -34,15 +34,29 @@
     <source-file src="src/android/HelloCPlugin.java" target-dir="app/src/main/java/com/example/"/>
     <source-file src="src/android/HelloCJni.java" target-dir="app/src/main/java/com/example/" />
 
-    <!-- PRODUCTION - comment out source files below for debugging -->
-    <!-- Compiled C libraries -->
+  <!-- PRODUCTION - comment out source files below for debugging -->
+
+    <!-- Compiled C libraries - release binaries - device -->
     <source-file src="src/android/libs/arm64-v8a/libhelloc.so" target-dir="app/src/main/jniLibs/arm64-v8a/" />
     <source-file src="src/android/libs/armeabi-v7a/libhelloc.so" target-dir="app/src/main/jniLibs/armeabi-v7a/" />
+
+    <!-- Compiled C libraries - release binaries - emulator -->
     <source-file src="src/android/libs/x86/libhelloc.so" target-dir="app/src/main/jniLibs/x86/" />
     <source-file src="src/android/libs/x86_64/libhelloc.so" target-dir="app/src/main/jniLibs/x86_64/" />
-    <!-- END PRODUCTION -->
 
-    <!-- DEBUG - these files are not needed for production -->
+    <!-- Compiled C libraries - debug binaries - device -->
+    <source-file src="src/android/obj/local/armeabi-v7a/libhelloc.so" target-dir="app/obj/local/armeabi-v7a/" />
+    <source-file src="src/android/obj/local/arm64-v8a/libhelloc.so" target-dir="app/obj/local/arm64-v8a/" />
+
+    <!-- Compiled C libraries - debug binaries - emulator -->
+    <source-file src="src/android/obj/local/x86/libhelloc.so" target-dir="app/obj/local/x86/" />
+    <source-file src="src/android/obj/local/x86_64/libhelloc.so" target-dir="app/obj/local/x86_64/" />
+
+  <!-- END PRODUCTION -->
+
+
+
+  <!-- DEBUG - these files are not needed for production -->
     <!-- Custom gradle file to setup NDK for debugging -->
     <source-file src="src/android/build-extras.gradle" target-dir="."/>
 
@@ -61,7 +75,7 @@
     <source-file src="src/common/mylib/mycomponent.c" target-dir="app/src/main/java/c/common/mylib"/>
     <source-file src="src/common/mylib/parts/mypart.h" target-dir="app/src/main/java/c/common/mylib/parts"/>
     <source-file src="src/common/mylib/parts/mypart.c" target-dir="app/src/main/java/c/common/mylib/parts"/>
-    <!-- END DEBUG -->
+  <!-- END DEBUG -->
 
   </platform>
 
@@ -85,6 +99,7 @@
     <source-file src="src/common/hello.c" target-dir="HelloCPlugin"/>
 
     <!-- PRODUCTION - comment out source files below for debugging -->
+    <!-- pre-compiled library as a framework -->
     <!-- Compiled C libraries -->
     <source-file src="src/ios/libs/libmylib.a" framework="true" />
     <!-- C header files -->
@@ -102,7 +117,6 @@
     <!--<header-file src="src/common/mylib/parts/mypart.h" target-dir="HelloCPlugin"/>-->
     <!--<source-file src="src/common/mylib/parts/mypart.c" target-dir="HelloCPlugin"/>-->
     <!-- END DEBUG -->
-
 
   </platform>
 </plugin>

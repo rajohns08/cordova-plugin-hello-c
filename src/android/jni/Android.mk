@@ -1,6 +1,7 @@
 # Android Makefile
 
 APP_PLATFORM := android-19
+APP_ABI := armeabi-v7a arm64-v8a x86 x86_64
 
 PATH_SEP := /
 
@@ -12,28 +13,43 @@ define walk
   $(wildcard $(1)) $(foreach e, $(wildcard $(1)$(PATH_SEP)*), $(call walk, $(e)))
 endef
 
+SRC_LIST :=
+INCLUDE_LIST :=
+
+
+################################
+# prepare shared lib
+
 LOCAL_MODULE := helloc
 
-# Include paths
-INCLUDE_LIST := $(wildcard $(LOCAL_PATH))
-INCLUDE_LIST := $(wildcard $(LOCAL_PATH))/../../common/
+# JNI interface files
+INCLUDE_LIST += $(LOCAL_PATH)
+SRC_LIST += $(wildcard $(LOCAL_PATH)/*.c)
+
+# Cross-platform common files
+INCLUDE_LIST += $(LOCAL_PATH)/../../common/
 ifeq ($(OS),Windows_NT)
 	INCLUDE_LIST += ${shell dir $(LOCAL_PATH)\..\..\common\ /ad /b /s}
 else
 	INCLUDE_LIST += ${shell find $(LOCAL_PATH)/../../common/ -type d}
 endif
+SRC_LIST += $(filter %.c, $(call walk, $(LOCAL_PATH)/../../common))
 
 
-# C source files
-SRC_LIST := $(wildcard $(LOCAL_PATH)$(PATH_SEP)*.c)
-SRC_LIST += $(filter %.c, $(call walk, $(LOCAL_PATH)$(PATH_SEP)..$(PATH_SEP)..$(PATH_SEP)common))
-
-# Log to console
-$(warning LOCAL_PATH:$(LOCAL_PATH))
-$(warning SRC_LIST:$(SRC_LIST))
-$(warning INCLUDE_LIST:$(INCLUDE_LIST))
+$(info LOCAL_PATH:$(LOCAL_PATH))
+$(info SRC_LIST:$(SRC_LIST))
+$(info INCLUDE_LIST:$(INCLUDE_LIST))
 
 LOCAL_C_INCLUDES := $(INCLUDE_LIST)
-LOCAL_SRC_FILES := $(SRC_LIST:$(LOCAL_PATH)$(PATH_SEP)%=%)
+LOCAL_SRC_FILES := $(SRC_LIST:$(LOCAL_PATH)/%=%)
+
+LOCAL_CFLAGS += -std=c99
+LOCAL_CPPFLAGS := -fblocks
+TARGET_PLATFORM := android-27
+LOCAL_DISABLE_FATAL_LINKER_WARNINGS := true
+LOCAL_LDLIBS += -Wl,--no-warn-shared-textrel
+LOCAL_LDFLAGS += -fuse-ld=gold
 
 include $(BUILD_SHARED_LIBRARY)
+
+################################
