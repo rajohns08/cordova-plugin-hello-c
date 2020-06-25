@@ -9,4 +9,6 @@
 #include <stdio.h>
 
 char* c_hello(char* input);
+int crash();
+
 #endif /* hello_h */

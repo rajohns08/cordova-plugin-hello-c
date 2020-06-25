@@ -47,4 +47,14 @@
     [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
 }
 
+- (void)causeCrash:(CDVInvokedUrlCommand *)command
+{
+    int output = crash(); // Call the C function
+
+    // should not reach here
+    NSLog(@"%@", [NSString stringWithFormat: @"result=%d",output]);
+    CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsInt:output];
+    [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+}
+
 @end

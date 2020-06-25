@@ -34,6 +34,13 @@ public class HelloCPlugin extends CordovaPlugin {
                 int y = data.getInt(1);
                 int jniOutput = HelloCJni.calculate(x,y);
                 callbackContext.success(jniOutput);
+            } else if (action.equals("causeCrash")) {
+                cordova.getThreadPool().execute(new Runnable() {
+                    public void run() {
+                        int jniOutput = HelloCJni.crash();
+                        callbackContext.success(jniOutput); // should not reach here
+                    }
+                });
             }
             else {
                 handleError("Invalid action");

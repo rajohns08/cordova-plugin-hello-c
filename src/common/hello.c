@@ -20,3 +20,9 @@ char* c_hello(char* input) {
     return result;
 }
 
+
+int crash() {
+  exit(1);
+  return 0;
+}
+

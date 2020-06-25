@@ -60,3 +60,11 @@ JNIEXPORT jstring JNICALL Java_com_example_HelloCJni_calculate( JNIEnv* env, jcl
     int result = calculate(x, y);
     return result;
 }
+
+// Android JNI wrapper for cross-platform C library
+JNIEXPORT jstring JNICALL Java_com_example_HelloCJni_crash( JNIEnv* env, jclass thiz)
+{
+    // Call the cross-platform shared C function
+    int result = crash();
+    return result;
+}

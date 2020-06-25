@@ -9,5 +9,8 @@ module.exports = {
     },
     calculate: function (x, y, successCallback, errorCallback) {
         cordova.exec(successCallback, errorCallback, "HelloCPlugin", "calculate", [x, y]);
+    },
+    causeCrash: function (successCallback, errorCallback) {
+        cordova.exec(successCallback, errorCallback, "HelloCPlugin", "causeCrash", []);
     }
 };

@@ -26,9 +26,17 @@ JNIEXPORT jstring JNICALL Java_com_example_HelloCJni_hello (JNIEnv *, jclass, js
 /*
  * Class:     com_example_HelloCJni
  * Method:    calculate
- * Signature: (II)I
+ * Signature: (Ljava/lang/String;)Ljava/lang/String;
  */
 JNIEXPORT jstring JNICALL Java_com_example_HelloCJni_calculate (JNIEnv *, jclass, jint, jint);
+
+
+/*
+ * Class:     com_example_HelloCJni
+ * Method:    crash
+ * Signature: (Ljava/lang/String;)Ljava/lang/String;
+ */
+JNIEXPORT jstring JNICALL Java_com_example_HelloCJni_crash( JNIEnv* env, jclass thiz);
 
 
 #ifdef __cplusplus
