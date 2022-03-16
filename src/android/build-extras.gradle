@@ -1,5 +1,4 @@
 android {
-    ndkVersion "22.1.7171670"
     packagingOptions {
         pickFirst 'app/src/main/jniLibs/arm64-v8a/libhelloc.so'
         pickFirst 'app/src/main/jniLibs/armeabi-v7a/libhelloc.so'
