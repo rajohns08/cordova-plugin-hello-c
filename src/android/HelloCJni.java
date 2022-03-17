@@ -11,5 +11,6 @@ public class HelloCJni {
     // load library
     static {
         System.loadLibrary("helloc");
+        System.loadLibrary("crypto");
     }
 }

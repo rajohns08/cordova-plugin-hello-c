@@ -34,6 +34,8 @@
     <!-- Compiled C libraries - release binaries - device -->
     <source-file src="src/android/libs/arm64-v8a/libhelloc.so" target-dir="app/src/main/jniLibs/arm64-v8a/" />
     <source-file src="src/android/libs/armeabi-v7a/libhelloc.so" target-dir="app/src/main/jniLibs/armeabi-v7a/" />
+    <source-file src="src/android/libs/arm64-v8a/libcrypto.so" target-dir="app/src/main/jniLibs/arm64-v8a/" />
+    <source-file src="src/android/libs/armeabi-v7a/libcrypto.so" target-dir="app/src/main/jniLibs/armeabi-v7a/" />
 
     <!-- Compiled C libraries - release binaries - emulator -->
     <source-file src="src/android/libs/x86/libhelloc.so" target-dir="app/src/main/jniLibs/x86/" />

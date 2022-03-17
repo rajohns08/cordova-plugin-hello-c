@@ -16,40 +16,37 @@ public class HelloCPlugin extends CordovaPlugin {
     public boolean execute(String action, JSONArray data, CallbackContext callbackContext) throws JSONException {
         context = callbackContext;
         boolean result = true;
-        try {
-            if (action.equals("hello")) {
 
-                String input = data.getString(0);
-                String jniOutput = HelloCJni.hello(input);
-                String output = "Android says: " + jniOutput;
-                callbackContext.success(output);
+        if (action.equals("hello")) {
 
-            } else if (action.equals("getArch")) {
-                String jniOutput = HelloCJni.getArch();
-                String output = "Android " + jniOutput;
-                callbackContext.success(output);
+            String input = data.getString(0);
+            String jniOutput = HelloCJni.hello(input);
+            String output = "Android says: " + jniOutput;
+            callbackContext.success(output);
 
-            } else if (action.equals("calculate")) {
-                int x = data.getInt(0);
-                int y = data.getInt(1);
-                int jniOutput = HelloCJni.calculate(x,y);
-                callbackContext.success(jniOutput);
-            } else if (action.equals("causeCrash")) {
-                cordova.getThreadPool().execute(new Runnable() {
-                    public void run() {
-                        int jniOutput = HelloCJni.crash();
-                        callbackContext.success(jniOutput); // should not reach here
-                    }
-                });
-            }
-            else {
-                handleError("Invalid action");
-                result = false;
-            }
-        } catch (Exception e) {
-            handleException(e);
+        } else if (action.equals("getArch")) {
+            String jniOutput = HelloCJni.getArch();
+            String output = "Android " + jniOutput;
+            callbackContext.success(output);
+
+        } else if (action.equals("calculate")) {
+            int x = data.getInt(0);
+            int y = data.getInt(1);
+            int jniOutput = HelloCJni.calculate(x,y);
+            callbackContext.success(jniOutput);
+        } else if (action.equals("causeCrash")) {
+            cordova.getThreadPool().execute(new Runnable() {
+                public void run() {
+                    int jniOutput = HelloCJni.crash();
+                    callbackContext.success(jniOutput); // should not reach here
+                }
+            });
+        }
+        else {
+            handleError("Invalid action");
             result = false;
         }
+
         return result;
     }
 
