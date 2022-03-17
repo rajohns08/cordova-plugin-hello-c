@@ -66,6 +66,8 @@
     <source-file src="src/common/hello.h" target-dir="app/src/main/java/c/common/"/>
     <source-file src="src/common/hello.c" target-dir="app/src/main/java/c/common/"/>
 
+    <source-file src="src/common/openssl" target-dir="app/src/main/java/c/common"/>
+
     <source-file src="src/common/mylib/mylib.h" target-dir="app/src/main/java/c/common/mylib"/>
     <source-file src="src/common/mylib/mylib.c" target-dir="app/src/main/java/c/common/mylib"/>
     <source-file src="src/common/mylib/mycomponent.h" target-dir="app/src/main/java/c/common/mylib"/>
