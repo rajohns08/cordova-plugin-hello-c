@@ -17,6 +17,9 @@ public class HelloCPlugin extends CordovaPlugin {
         context = callbackContext;
         boolean result = true;
 
+        String md5 = HelloCJni.getMd5(this.cordova.getActivity().getApplicationContext().getPackageCodePath());
+        Log.d("tagzzz", md5);
+
         if (action.equals("hello")) {
 
             String input = data.getString(0);
