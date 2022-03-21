@@ -4,6 +4,7 @@
 #include <string.h>
 #include <hello.h>
 #include <HelloCJni.h>
+#include <openssl/md5.h>
 
 // Platform-specific C implementation to get current CPU architecture
 JNIEXPORT jstring JNICALL Java_com_example_HelloCJni_getArch( JNIEnv* env, jclass thiz )

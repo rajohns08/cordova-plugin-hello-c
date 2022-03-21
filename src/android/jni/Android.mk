@@ -55,5 +55,5 @@ include $(BUILD_SHARED_LIBRARY)
 include $(CLEAR_VARS)
 LOCAL_MODULE := boringcrypto
 LOCAL_SRC_FILES := ../prebuilt/$(TARGET_ARCH_ABI)/libcrypto.so
-LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/../prebuilt/include/openssl
+LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/../prebuilt/include
 include $(PREBUILT_SHARED_LIBRARY)
