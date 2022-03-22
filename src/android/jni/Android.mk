@@ -1,8 +1,5 @@
 # Android Makefile
 
-APP_PLATFORM := android-21
-APP_ABI := armeabi-v7a arm64-v8a x86 x86_64
-
 PATH_SEP := /
 
 LOCAL_PATH := $(call my-dir)
@@ -42,6 +39,7 @@ $(info INCLUDE_LIST:$(INCLUDE_LIST))
 
 LOCAL_C_INCLUDES := $(INCLUDE_LIST)
 LOCAL_SRC_FILES := $(SRC_LIST:$(LOCAL_PATH)/%=%)
+LOCAL_SHARED_LIBRARIES := boringcrypto
 
 LOCAL_CFLAGS += -std=c99
 LOCAL_CPPFLAGS := -fblocks
@@ -53,3 +51,9 @@ LOCAL_LDFLAGS += -fuse-ld=gold
 include $(BUILD_SHARED_LIBRARY)
 
 ################################
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := boringcrypto
+LOCAL_SRC_FILES := ../prebuilt/$(TARGET_ARCH_ABI)/libcrypto.so
+LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/../prebuilt/include
+include $(PREBUILT_SHARED_LIBRARY)

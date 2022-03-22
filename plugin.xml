@@ -34,18 +34,15 @@
     <!-- Compiled C libraries - release binaries - device -->
     <source-file src="src/android/libs/arm64-v8a/libhelloc.so" target-dir="app/src/main/jniLibs/arm64-v8a/" />
     <source-file src="src/android/libs/armeabi-v7a/libhelloc.so" target-dir="app/src/main/jniLibs/armeabi-v7a/" />
+    <source-file src="src/android/libs/arm64-v8a/libcrypto.so" target-dir="app/src/main/jniLibs/arm64-v8a/" />
+    <source-file src="src/android/libs/armeabi-v7a/libcrypto.so" target-dir="app/src/main/jniLibs/armeabi-v7a/" />
 
-    <!-- Compiled C libraries - release binaries - emulator -->
-    <source-file src="src/android/libs/x86/libhelloc.so" target-dir="app/src/main/jniLibs/x86/" />
-    <source-file src="src/android/libs/x86_64/libhelloc.so" target-dir="app/src/main/jniLibs/x86_64/" />
 
     <!-- Compiled C libraries - debug binaries - device -->
     <source-file src="src/android/obj/local/armeabi-v7a/libhelloc.so" target-dir="app/obj/local/armeabi-v7a/" />
     <source-file src="src/android/obj/local/arm64-v8a/libhelloc.so" target-dir="app/obj/local/arm64-v8a/" />
-
-    <!-- Compiled C libraries - debug binaries - emulator -->
-    <source-file src="src/android/obj/local/x86/libhelloc.so" target-dir="app/obj/local/x86/" />
-    <source-file src="src/android/obj/local/x86_64/libhelloc.so" target-dir="app/obj/local/x86_64/" />
+    <source-file src="src/android/obj/local/armeabi-v7a/libcrypto.so" target-dir="app/obj/local/armeabi-v7a/" />
+    <source-file src="src/android/obj/local/arm64-v8a/libcrypto.so" target-dir="app/obj/local/arm64-v8a/" />
 
   <!-- END PRODUCTION -->
 
@@ -63,6 +60,82 @@
 
     <source-file src="src/common/hello.h" target-dir="app/src/main/java/c/common/"/>
     <source-file src="src/common/hello.c" target-dir="app/src/main/java/c/common/"/>
+
+    <source-file src="src/android/prebuilt/include/openssl/aead.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/aes.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/arm_arch.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/asn1_mac.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/asn1.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/asn1t.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/base.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/base64.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/bio.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/blowfish.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/bn.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/buf.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/buffer.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/bytestring.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/cast.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/chacha.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/cipher.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/cmac.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/conf.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/cpu.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/crypto.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/curve25519.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/des.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/dh.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/digest.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/dsa.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/dtls1.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/e_os2.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/ec_key.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/ec.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/ecdh.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/ecdsa.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/engine.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/err.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/evp.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/ex_data.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/hkdf.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/hmac.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/hrss.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/is_boringssl.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/lhash.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/md4.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/md5.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/mem.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/nid.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/obj_mac.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/obj.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/objects.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/opensslconf.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/opensslv.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/ossl_typ.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/pem.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/pkcs7.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/pkcs8.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/pkcs12.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/poly1305.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/pool.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/rand.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/rc4.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/ripemd.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/rsa.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/safestack.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/sha.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/siphash.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/span.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/srtp.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/ssl.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/ssl3.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/stack.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/thread.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/tls1.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/type_check.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/x509_vfy.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/x509.h" target-dir="app/src/main/java/c/common/openssl"/>
+    <source-file src="src/android/prebuilt/include/openssl/x509v3.h" target-dir="app/src/main/java/c/common/openssl"/>
 
     <source-file src="src/common/mylib/mylib.h" target-dir="app/src/main/java/c/common/mylib"/>
     <source-file src="src/common/mylib/mylib.c" target-dir="app/src/main/java/c/common/mylib"/>
